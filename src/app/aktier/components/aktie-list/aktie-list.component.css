@@ -1,0 +1,11 @@
+.earned {
+  color:green;
+}
+
+.itemText {
+  font-size: 10px;
+}
+
+.table td, .table th {
+  padding: .50rem;
+}

@@ -1,0 +1,27 @@
+<section id="wrapper" class="container">
+
+  <br>
+
+  <div class="container">
+    <h4 class="text-center">Mine beholdninger <button class="btn btn-success btn-sm float-right" (click)="addBeholdning()"><i class="fas fa-plus"></i>
+        Tilføj</button></h4>
+    <br>
+    <div class="row">
+      <table class="table table-striped" *ngIf="beholdninger.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">Aktienavn</th>
+            <th scope="col">Antal</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let beholdning of beholdninger">
+          <tr>
+            <td><span (click)="goToStock(beholdning)" routerLinkActive="router-link-active"  class="itemText">{{beholdning.name}}</span></td>
+            <td><span class="itemText">{{beholdning.antal}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+</section>

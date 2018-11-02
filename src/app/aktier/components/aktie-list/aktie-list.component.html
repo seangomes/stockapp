@@ -1,0 +1,64 @@
+<section id="wrapper" class="container">
+
+  <br>
+
+  <div class="container">
+    <h4 class="text-center">Sort By <button class="btn btn-success btn-sm float-right" (click)="addAktie()"><i class="fas fa-plus"></i> Tilføj</button></h4>
+    <br>
+    <div class="row">
+      <div class="col-4" *ngFor="let sortName of sortByNamesList">
+        <button class="btn btn-default" (click)="selectedFilter(sortName)">{{sortName}}</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <!-- Load in template for filter -->
+  <!-- TEMPLATES -->
+  <ng-container *ngIf="selectedFilterValue == 'Aktienavn'">
+    <select class="form-control">
+      <option [value]="selectedAktie" *ngFor="let aktie of aktier">
+        {{aktie.name}}
+      </option>
+    </select>
+  </ng-container>
+
+  <ng-container *ngIf="selectedFilterValue == 'Dato'">
+    Filter by date
+  </ng-container>
+
+  <br>
+
+  <div class="row">
+    <table class="table table-striped" *ngIf="aktier.length > 0">
+      <thead>
+        <tr>
+          <th scope="col">Aktienavn</th>
+          <th scope="col">Dato</th>
+          <th scope="col">Udbytte</th>
+          <th scope="col">Skat</th>
+          <th scope="col">Tjent</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let aktie of aktier" ng-change="calcTotalPrice()">
+        <tr>
+          <td><span (click)="goToStock(aktie)" routerLinkActive="router-link-active"  class="itemText">{{aktie.name}}</span></td>
+          <td><span class="itemText">{{aktie.createdDate}}</span></td>
+          <td><span class="itemText">{{aktie.yieldPrice}},-</span></td>
+          <td><span class="itemText">{{aktie.taxPrice}},-</span></td>
+          <td><span class="itemText earned">{{aktie.totalEarningPrice}},-</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="itemText">total: <span class="earned" id="totalPrice"> {{totalPrice}} ,-</span></td>
+        </tr>
+      </tfoot>
+    </table>
+    <hr>
+  </div>
+
+</section>

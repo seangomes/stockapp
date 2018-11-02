@@ -1,0 +1,63 @@
+<section id="wrapper" class="container">
+
+  <br>
+  <h4 class="text-center"><i class="fas fa-arrow-circle-left float-left backArrow" [routerLink]="['/aktier']"
+      routerLinkActive="router-link-active"></i> Tilføj nyt udbytte</h4>
+  <br>
+  <!--Form-->
+  <form [formGroup]="newAddAktieForm" novalidate (ngSubmit)="addAktie(newAddAktieForm)" *ngIf="aktieNames.length > 0">
+    <!--Aktiename-->
+    <div class="form-group containerSpace">
+      <!-- <input type="text" class="form-control" formControlName="name" placeholder="Aktienavn"> -->
+      <!--Conent Validation error-->
+      <select formControlName="name" class=form-control>
+        <option [ngValue]="aktiename" *ngFor="let aktiename of aktieNames">{{aktiename}}</option>
+      </select>
+      <div class="containerSpace">
+        <div class="alert alert-danger" *ngIf="newAddAktieForm.get('name').hasError('required') && newAddAktieForm.get('name').touched">
+          Aktienavn skal angives!
+        </div>
+      </div>
+    </div>
+    <!--YieldPrice-->
+    <div class="form-group containerSpace">
+      <input type="number" class="form-control" formControlName="yieldPrice" placeholder="Udbytte">
+      <!--Conent Validation error-->
+      <div class="containerSpace">
+        <div class="alert alert-danger" *ngIf="newAddAktieForm.get('yieldPrice').hasError('required') && newAddAktieForm.get('yieldPrice').touched">
+          Udbytte skal angives!
+        </div>
+      </div>
+    </div>
+    <!--Tax Price-->
+    <div class="form-group containerSpace">
+      <input type="number" class="form-control" formControlName="taxPrice" placeholder="Skat afgift">
+      <!--Conent Validation error-->
+      <div class="containerSpace">
+        <div class="alert alert-danger" *ngIf="newAddAktieForm.get('yieldPrice').hasError('required') && newAddAktieForm.get('yieldPrice').touched">
+          Skat afgift skal angives!
+        </div>
+      </div>
+    </div>
+    <!--Total Earning Price
+    <div class="form-group containerSpace">
+      <input type="number" class="form-control" formControlName="totalEarningPrice" placeholder="Indtjening total">
+      Conent Validation error
+      <div class="containerSpace">
+        <div class="alert alert-danger" *ngIf="newAddAktieForm.get('yieldPrice').hasError('required') && newAddAktieForm.get('yieldPrice').touched">
+          Total indtjening skal angives!
+        </div>
+      </div>
+    </div>-->
+    <!--Created Date-->
+    <div class="form-group containerSpace">
+      <input type="text" class="form-control" formControlName="createdDate" placeholder="Dato for udbytte" bsDatepicker
+        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', containerClass: colorTheme }">
+    </div>
+    <!--Submit button-->
+    <span class="form-group containerSpace">
+      <button class="btn btn-success fullWidth" type="submit" [disabled]="newAddAktieForm.invalid">Tilføj!</button>
+    </span>
+  </form>
+
+</section>

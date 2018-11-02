@@ -1,0 +1,34 @@
+<section id="wrapper" class="container">
+
+  <br>
+  <h4 class="text-center"><i class="fas fa-arrow-circle-left float-left backArrow" [routerLink]="['/beholdninger']" routerLinkActive="router-link-active" ></i> Tilføj ny beholdning</h4>
+  <br>
+  <!--Form-->
+  <form [formGroup]="newAddBeholdningForm" novalidate (ngSubmit)="addBeholdning(newAddBeholdningForm)" >
+    <!--Aktiename-->
+    <div class="form-group containerSpace">
+      <input type="text" class="form-control" formControlName="name" placeholder="Aktienavn">
+      <!--Conent Validation error-->
+      <div class="containerSpace">
+        <div class="alert alert-danger" *ngIf="newAddBeholdningForm.get('name').hasError('required') && newAddBeholdningForm.get('name').touched">
+          Beholdningnavn skal angives!
+        </div>
+      </div>
+    </div>
+    <!--Antal-->
+    <div class="form-group containerSpace">
+      <input type="number" class="form-control" formControlName="antal" placeholder="Antal">
+      <!--Conent Validation error-->
+      <div class="containerSpace">
+        <div class="alert alert-danger" *ngIf="newAddBeholdningForm.get('antal').hasError('required') && newAddBeholdningForm.get('antal').touched">
+          Antal skal angives!
+        </div>
+      </div>
+    </div>
+    <!--Submit button-->
+    <span class="form-group containerSpace">
+      <button class="btn btn-success fullWidth" type="submit" [disabled]="newAddBeholdningForm.invalid">Tilføj!</button>
+    </span>
+  </form>
+
+</section>

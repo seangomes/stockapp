@@ -1,0 +1,17 @@
+[debug] [2018-11-02T15:23:27.440Z] ----------------------------------------------------------------------
+[debug] [2018-11-02T15:23:27.446Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-11-02T15:23:27.446Z] CLI Version:   3.13.1
+[debug] [2018-11-02T15:23:27.446Z] Platform:      win32
+[debug] [2018-11-02T15:23:27.446Z] Node Version:  v10.13.0
+[debug] [2018-11-02T15:23:27.447Z] Time:          Fri Nov 02 2018 16:23:27 GMT+0100 (GMT+01:00)
+[debug] [2018-11-02T15:23:27.447Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-11-02T15:23:27.462Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-11-02T15:23:27.463Z] > authorizing via signed-in user
+[debug] [2018-11-02T15:23:27.465Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/stocktracker-c2212  
+ Fri Nov 02 2018 16:23:27 GMT+0100 (GMT+01:00)
+[debug] [2018-11-02T15:23:28.199Z] <<< HTTP RESPONSE 200
+[debug] [2018-11-02T15:23:28.199Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/stocktracker-c2212/tokens  
+ Fri Nov 02 2018 16:23:28 GMT+0100 (GMT+01:00)
+[debug] [2018-11-02T15:23:28.798Z] <<< HTTP RESPONSE 200
+[info] 1

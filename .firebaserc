@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "stocktracker-c2212",
+    "stocktracker": "stocktracker-c2212"
+  }
+}
